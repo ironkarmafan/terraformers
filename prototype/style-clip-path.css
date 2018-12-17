@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.board {
+
+}
+
+.map {
+    position: relative;
+    width: 80%;
+}
+.map .row {
+    margin-bottom: -2.5%;
+    display: flex;
+    justify-content: center;
+}
+.map .row:first-child {
+}
+.map .row:nth-child(even) {
+    background-color: #dfdfdf;
+}
+
+.tile {
+    position: relative;
+    margin: .4%;
+    width: 9%;
+    height: 0;
+    padding-bottom: 10%;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: gray;
+}
+
+    .tile:hover {
+        background-color: olivedrab;
+    }
+
+.ocean .hexagon {
+    fill: blue;
+    /* background: repeat url("https://previews.123rf.com/images/thecorner/thecorner1506/thecorner150600005/41708836-wave-pattern-background-vector-background-blue-green.jpg")
+    background-size: 10%; */
+}
