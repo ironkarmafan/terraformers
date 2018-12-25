@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Prototype';
+  src: url('fonts/Prototype.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/Prototype.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/Prototype.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +12,7 @@
 }
 
 body {
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-family: 'Prototype';
 }
 .board {
 
