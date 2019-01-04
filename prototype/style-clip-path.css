@@ -13,24 +13,89 @@
 
 body {
     font-family: 'Prototype';
+    color: white;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,rgba(56,56,56,1) 100%);
+
 }
 .board {
+    display: flex;
+    flex-wrap: wrap;
+}
 
+.temperature {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    width: 10%;
+    background: black;
+}
+
+.temperature .step {
+    display: flex;
+    width: 100%;
+    height: 5%;
+    justify-content: center;
+    align-items: center;
+    transform: perspective(1px) translateZ(0);
+    background: green;
+    transition-property: color;
+    transition-duration: 0.3s;
+}
+
+.temperature .step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: red;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-out;
+}
+
+.temperature .step::after {
+    content: "";
+}
+
+.temperature .step strong {
+    display: block;
+    font-weight: bold;
+    font-size: 1vw;
+}
+
+.temperature .step:hover:before {
+    transform: scaleY(1);
+}
+
+.oxygen {
+    position: relative;
+    width: 10%;
+    background: green;
 }
 
 .map {
-    position: relative;
     width: 80%;
+    height: 100%;
+    overflow: scroll;
 }
+
+.map .container {
+    position: relative;
+    width: 200%;
+    height: 82%;
+}
+
 .map .row {
     margin-bottom: -2.5%;
     display: flex;
     justify-content: center;
 }
 .map .row:first-child {
-}
-.map .row:nth-child(even) {
-    background-color: #dfdfdf;
 }
 
 .tile {
@@ -44,33 +109,49 @@ body {
 }
 
 .hexagon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-
-    background: gray;
+    opacity: 0.45;
+    background: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.65) 25%,rgba(179,134,0,0.85) 100%);
 
     transform: perspective(1px) translateZ(0);
     transition-duration: 0.3s;
-    transition-property: transform, background-color;
+    transition-property: transform, opacity;
 }
 
     .hexagon:hover,
     .hexagon:focus,
     .hexagon:active {
         transform: scale(1.1);
-        background-color: olivedrab;
+        opacity: 1;
+        background-image: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.65) 25%,rgba(179,134,0,0.85) 100%);
     }
 
 .ocean .hexagon {
-    fill: blue;
-    /* background: repeat url("https://previews.123rf.com/images/thecorner/thecorner1506/thecorner150600005/41708836-wave-pattern-background-vector-background-blue-green.jpg")
-    background-size: 10%; */
+    background-image: radial-gradient(ellipse at center, rgba(102, 153, 255, 0.45) 0%,rgba(102, 153, 255, 0.65) 25%,rgba(102, 102, 255,0.85) 100%);
+}
+
+.ganymede {
+    top: 1%;
+    left: 1%;
+    position: absolute;
+}
+
+.phobos {
+    top: 28%;
+    left: 1%;
+    position: absolute;
 }
 
 .resource {
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
