@@ -1,3 +1,14 @@
+/* Color Key
+Ocean Blue: rgb(51, 153, 255)
+Player Red: rgb(204, 0, 0)
+Player Blue: 
+Player Green:
+Player Yellow:
+Player Black:
+Greenery: 
+Default Misc: 
+*/
+
 @font-face {
   font-family: 'Prototype';
   src: url('fonts/Prototype.woff2') format('woff2'), /* Super Modern Browsers */
@@ -22,6 +33,139 @@ body {
     flex-wrap: wrap;
 }
 
+.temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 15%;
+    width: 20%;
+    background: pink;
+}
+
+.temperature .guage {
+    position: absolute;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
+    z-index: 15;
+}
+
+.temperature .guage .container {
+    position: absolute;
+    z-index: 13;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    background: red;
+}
+
+.temperature .decrement {
+    position: absolute;
+    right: 72%;
+    width: 25%;
+    height: 0;
+    padding-bottom: 25%;
+}
+
+.temperature .decrement .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(100% 0%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    clip-path: polygon(100% 0%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    background: blue;
+}
+
+.temperature .decrement button {
+    position: absolute;
+    z-index: 11;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: lime;
+    border: 0;
+}
+
+.temperature .decrement button strong {
+    display: block;
+    width: 48%;
+    height: 48%;
+    margin: 25% 0 25% 30%;
+
+    -webkit-clip-path: polygon(5% 35%, 5% 65%, 96% 65%, 96% 35%);
+    clip-path: polygon(5% 35%, 5% 65%, 96% 65%, 96% 35%);
+
+    background: black;
+}
+
+.temperature .increment {
+    position: absolute;
+    left: 72%;
+    width: 25%;
+    height: 0;
+    padding-bottom: 25%;
+    z-index: 11;
+}
+
+.temperature .increment .container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 0%);
+    background: green;
+
+    transition-duration: 0.3s;
+    transition-property: width, clip-path;
+}
+
+.temperature .increment:hover .container,
+.temperature .increment.expanded .container {
+    width: 300%;
+    -webkit-clip-path: polygon(92% 0%, 100% 50%, 92% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(92% 0%, 100% 50%, 92% 100%, 0% 100%, 0% 0%);
+}
+
+.temperature .increment .close {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: lime;
+    border: 0;
+
+    transition-duration: 0.3s;
+    transition-property: width;
+}
+
+.temperature .increment:hover .close,
+.temperature .increment.expanded .close {
+    width: 33%;
+}
+
+.temperature .increment .close strong {
+    display: block;
+    width: 48%;
+    height: 48%;
+    margin: 25% 0 25% 26%;
+    transform: rotate(45deg);
+    -webkit-clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    background: black;
+
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.temperature .increment:hover .close strong,
+.temperature .increment.expanded .close strong {
+    transform: rotate(0deg);
+}
+
+
+/*
 .temperature {
     display: flex;
     flex-direction: column-reverse;
@@ -70,15 +214,17 @@ body {
 
 .temperature .step:hover:before {
     transform: scaleY(1);
-}
+} */
 
 .oxygen {
+    display: none;
     position: relative;
     width: 10%;
     background: green;
 }
 
 .map {
+    margin-left: 20%;
     width: 80%;
     height: 100%;
     overflow: scroll;
