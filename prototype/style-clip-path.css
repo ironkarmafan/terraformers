@@ -121,11 +121,42 @@ body {
     transition-property: width, clip-path;
 }
 
-.temperature .increment:hover .container,
 .temperature .increment.expanded .container {
     width: 300%;
     -webkit-clip-path: polygon(92% 0%, 100% 50%, 92% 100%, 0% 100%, 0% 0%);
     clip-path: polygon(92% 0%, 100% 50%, 92% 100%, 0% 100%, 0% 0%);
+}
+
+.temperature .increment button {
+    position: absolute;
+    width: 25%;
+    height: 100%;
+    border: 0;
+}
+
+.temperature .increment button.red {
+    left: 0;
+    background: rgba(204, 0, 0, 1);
+}
+
+.temperature .increment button.green {
+    left: 15%;
+    background: green;
+}
+
+.temperature .increment button.blue {
+    left: 28%;
+    background: rgba(51, 153, 255, 1);
+}
+
+.temperature .increment button.yellow {
+    left: 41%;
+    background: yellow;
+}
+
+.temperature .increment button.black {
+    left: 54%;
+    background: #333333;
 }
 
 .temperature .increment .close {
@@ -140,7 +171,6 @@ body {
     transition-property: width;
 }
 
-.temperature .increment:hover .close,
 .temperature .increment.expanded .close {
     width: 33%;
 }
@@ -159,7 +189,6 @@ body {
     transition-property: transform;
 }
 
-.temperature .increment:hover .close strong,
 .temperature .increment.expanded .close strong {
     transform: rotate(0deg);
 }
