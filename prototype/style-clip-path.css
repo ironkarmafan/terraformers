@@ -259,6 +259,10 @@ increment/decrement in 100% units
     padding-bottom: 10%;
 
     text-align: center;
+
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-image: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.45) 25%,rgba(179,134,0,0.55) 100%);
 }
 
 .hexagon {
@@ -267,12 +271,14 @@ increment/decrement in 100% units
     align-items: center;
 
     position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 5%;
+    left: 5%;
+
+    width: 90%;
+    height: 90%;
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     opacity: 0.45;
-    background: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.65) 25%,rgba(179,134,0,0.85) 100%);
 
     transform: perspective(1px) translateZ(0);
     transition-duration: 0.3s;
@@ -282,14 +288,99 @@ increment/decrement in 100% units
     .hexagon:hover,
     .hexagon:focus,
     .hexagon:active {
-        transform: scale(1.1);
+        transform: scale(1.15);
         opacity: 1;
-        background-image: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.65) 25%,rgba(179,134,0,0.85) 100%);
     }
 
-.ocean .hexagon {
-    background-image: radial-gradient(ellipse at center, rgba(102, 153, 255, 0.45) 0%,rgba(102, 153, 255, 0.65) 25%,rgba(102, 102, 255,0.85) 100%);
+    .hexagon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: .5;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+.ocean {
+    background-image: radial-gradient(ellipse at center, rgba(102, 153, 255, 0.25) 0%,rgba(102, 153, 255, 0.35) 25%,rgba(102, 102, 255,0.55) 100%);
 }
+
+    .ocean .hexagon::after {
+        opacity: .35;
+        background-image: url(img/ocean-drop.svg), url(img/ocean.svg);
+        background-color: rgba(102, 153, 255, 1)
+    }
+
+    .ocean .hexagon:hover,
+    .ocean .hexagon:focus,
+    .ocean .hexagon:active {
+        opacity: .75;
+    }
+
+.preserve .hexagon::after {
+    background-image: url(img/preserve.svg);
+}
+
+.mohole .hexagon::after {
+    background-image: url(img/mohole.svg);
+}
+
+.capital .hexagon::after {
+    opacity: 1;
+    background-image: url(img/capital.svg);
+}
+
+.restricted-area .hexagon::after {
+    background-image: url(img/restricted-area.svg);
+}
+
+.volcano .hexagon::after {
+    background-image: url(img/volcano.svg);
+}
+
+.volcano .hexagon::after {
+    background-image: url(img/volcano.svg);
+}
+
+.mine .hexagon::after {
+    background-image: url(img/mine.svg);
+}
+
+.eco-zone .hexagon::after {
+    background-image: url(img/eco-zone.svg);
+}
+
+.com-district .hexagon::after {
+    background-image: url(img/com-district.svg);
+}
+
+.factory .hexagon::after {
+    background-image: url(img/factory.svg);
+}
+
+.nuclear .hexagon::after {
+    background-image: url(img/nuclear.svg);
+}
+
+.greenery .hexagon::after {
+    background-image: url(img/greenery.svg);
+}
+
+.city .hexagon::after {
+    background-image: url(img/city.svg);
+}
+
+.red {
+    background: rgba(204, 0, 0, 0.7);
+}
+
+    .red .hexagon {
+        background-color: rgba(204, 0, 0, 0.7);
+    }
 
 .ganymede {
     top: 1%;

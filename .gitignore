@@ -1,1 +1,4 @@
+.gitignore
 raw/
+settings.json
+.DS_Store
