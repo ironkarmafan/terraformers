@@ -60,6 +60,31 @@ body {
     clip-path: circle(50% at 50% 50%);
     background: red;
 }
+/*
+increment/decrement in 100% units
+*/
+.temperature .guage ul {
+    display: flex;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+
+    transition-property: top;
+}
+
+    .temperature .guage ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 50% 0;
+        font-size: 3vw;
+        list-style: none;
+    }
 
 .temperature .decrement {
     position: absolute;
@@ -192,58 +217,6 @@ body {
 .temperature .increment.expanded .close strong {
     transform: rotate(0deg);
 }
-
-
-/*
-.temperature {
-    display: flex;
-    flex-direction: column-reverse;
-    position: relative;
-    width: 10%;
-    background: black;
-}
-
-.temperature .step {
-    display: flex;
-    width: 100%;
-    height: 5%;
-    justify-content: center;
-    align-items: center;
-    transform: perspective(1px) translateZ(0);
-    background: green;
-    transition-property: color;
-    transition-duration: 0.3s;
-}
-
-.temperature .step::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    background: red;
-    transform: scaleY(0);
-    transform-origin: 50% 100%;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease-out;
-}
-
-.temperature .step::after {
-    content: "";
-}
-
-.temperature .step strong {
-    display: block;
-    font-weight: bold;
-    font-size: 1vw;
-}
-
-.temperature .step:hover:before {
-    transform: scaleY(1);
-} */
 
 .oxygen {
     display: none;
