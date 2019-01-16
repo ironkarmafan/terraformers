@@ -248,8 +248,6 @@ increment/decrement in 100% units
     display: flex;
     justify-content: center;
 }
-.map .row:first-child {
-}
 
 .tile {
     position: relative;
@@ -262,6 +260,9 @@ increment/decrement in 100% units
 
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.default.tile {
     background-image: radial-gradient(ellipse at center, rgba(102, 77, 0, 0.45) 0%,rgba(102, 77, 0, 0.45) 25%,rgba(179,134,0,0.55) 100%);
 }
 
@@ -304,6 +305,189 @@ increment/decrement in 100% units
         background-repeat: no-repeat;
         background-size: 100%;
     }
+
+.selectable.tile .hexagon {
+
+    opacity: 1;
+    transition-property: transform;
+    background-color: brown;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.prev {
+    position: absolute;
+    left: 0;
+    z-index: 6;
+    width: 25%;
+    height: 100%;
+    border: 0 none;
+    background: blue;
+    transition-duration: .15s;
+    transition-property: left;
+}
+
+.hide.prev {
+    left: -25%;
+}
+
+.next {
+    position: absolute;
+    left: 75%;
+    z-index: 6;
+    width: 25%;
+    height: 100%;
+    border: 0 none;
+    background: green;
+    transition-duration: .15s;
+    transition-property: left;
+}
+
+.hide.next {
+    left: 100%;
+}
+
+.options ul {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 0;
+    padding-top: 111.111%;
+    background: lime;
+}
+
+    .options ul li {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+    }
+
+.options .hexagon {
+    top: -.5%;
+    left: -.5%;
+    width: 101%;
+    height: 101%;
+    z-index: 3;
+    opacity: 1;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    background: red;
+}
+
+.options .selected.hexagon {
+    transform: scale(.5);
+}
+
+.confirmation-cancel {
+    position: absolute;
+    left: 0;
+    z-index: 5;
+    width: 50%;
+    height: 100%;
+    border: 0 none;
+    transition-property: left;
+    transition-duration: 0.15s;
+    background-color: orange;
+}
+
+.confirmation-cancel::after {
+    position: absolute;
+    content: "X"
+}
+
+.hide.confirmation-cancel {
+    left: -50%;
+}
+
+.confirmation-accept {
+    position: absolute;
+    left: 50%;
+    z-index: 5;
+    width: 50%;
+    height: 100%;
+    border: 0 none;
+    transition-property: left;
+    transition-duration: 0.15s;
+    background-color: white;
+}
+
+.confirmation-accept::after {
+    position: absolute;
+    content: "C"
+}
+
+.hide.confirmation-accept {
+    left: 100%;
+}
+
+.options li .red {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    left: 0;
+    background-color: red;
+}
+
+.options li .green {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    right: 0;
+    background-color: green;
+}
+
+.options li .blue {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    top: 50%;
+    left: 0;
+    background-color: blue;
+}
+
+.options li .yellow {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    top: 25%;
+    right: 0;
+    z-index: 1;
+    background-color: yellow;
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+
+.options li .black {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    top: 50%;
+    right: 0;
+    background-color: black;
+}
+
+.options li .cancel {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border: 0 none;
+    top: 25%;
+    left: 0;
+    z-index: 1;
+    background-color: orange;
+    clip-path: polygon(0 100%, 0 0, 100% 50%);
+}
 
 .ocean {
     background-image: radial-gradient(ellipse at center, rgba(102, 153, 255, 0.25) 0%,rgba(102, 153, 255, 0.35) 25%,rgba(102, 102, 255,0.55) 100%);
